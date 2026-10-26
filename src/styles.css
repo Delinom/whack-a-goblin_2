@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  grid-template-rows: repeat(4, 120px);
+  gap: 4px;
+  margin: 0 auto;
+  width: max-content;
+}
+
+.cell {
+  width: 120px;
+  height: 120px;
+  background-color: #ececec;
+  border: 1px solid #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goblin {
+  width: 54px;
+  height: 54px;
+  user-select: none;
+  cursor: url('./assets/hammer.png') 16 16, pointer;
+}
