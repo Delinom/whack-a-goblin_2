@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -32,6 +33,9 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
     }),
   ],
   devServer: {
