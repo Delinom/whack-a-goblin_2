@@ -1,14 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const mode = process.env.NODE_ENV === 'development' ? 'development' : 'production';
 
 module.exports = {
+  mode: mode,
   entry: './src/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/whack-a-goblin_2/',
+    publicPath: '',
   },
   module: {
     rules: [
@@ -32,7 +34,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+      'process.env.NODE_ENV': JSON.stringify(mode),
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
